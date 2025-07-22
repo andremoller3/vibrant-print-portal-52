@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cardápios Profissionais em Caraguatatuba - Vecinos Comunicação Visual</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    
+    <style>
+        /* Reset */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        h1, h2, h3 { font-family: 'Montserrat', sans-serif; }
+        
+        /* Design System Colors */
+        :root {
+            --vecinos-primary: #EB0090;
+            --vecinos-orange: #ff6200;
+            --vecinos-blue: #0047AB;
+            --vecinos-dark: #1A1A1A;
+        }
+        
+        /* Utility Classes */
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 1rem; }
+        .flex { display: flex; }
+        .items-center { align-items: center; }
+        .justify-between { justify-content: space-between; }
+        .text-center { text-align: center; }
+        .hidden { display: none; }
+        
+        /* Header */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 50;
+            padding: 1rem 0;
+        }
+        
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--vecinos-primary);
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--vecinos-orange);
+        }
+        
+        .mobile-menu {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--vecinos-orange), #ff7a1a);
+            color: white;
+            padding: 8rem 1rem 4rem;
+            min-height: 60vh;
+        }
+        
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+        }
+        
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: #10b981;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background 0.3s;
+        }
+        
+        .cta-button:hover {
+            background: #059669;
+        }
+        
+        .hero img {
+            width: 100%;
+            height: auto;
+            border-radius: 0.5rem;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+        
+        /* Content Section */
+        .content-section {
+            padding: 5rem 1rem;
+        }
+        
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: start;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .content-section h2 {
+            font-size: 2rem;
+            color: var(--vecinos-blue);
+            margin-bottom: 1.5rem;
+        }
+        
+        .content-section h3 {
+            font-size: 1.25rem;
+            color: var(--vecinos-orange);
+            margin: 2rem 0 1rem;
+        }
+        
+        .content-section p {
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+        
+        .benefits-list {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+        
+        .benefits-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+            margin-bottom: 0.75rem;
+            color: #374151;
+        }
+        
+        .check-icon {
+            color: var(--vecinos-orange);
+            margin-top: 0.125rem;
+            flex-shrink: 0;
+        }
+        
+        .specs-box {
+            background: #f9fafb;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+        }
+        
+        .specs-box h4 {
+            color: var(--vecinos-blue);
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+        }
+        
+        .specs-box ul {
+            list-style: none;
+            color: #666;
+        }
+        
+        .specs-box li {
+            margin-bottom: 0.5rem;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            background: var(--vecinos-orange);
+            color: white;
+            padding: 4rem 1rem;
+            text-align: center;
+        }
+        
+        .cta-section h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .cta-section p {
+            font-size: 1.125rem;
+            margin-bottom: 2rem;
+            max-width: 40rem;
+            margin-left: auto;
+            margin-right: auto;
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .cta-large {
+            background: #10b981;
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.125rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: background 0.3s;
+        }
+        
+        .cta-large:hover {
+            background: #059669;
+        }
+        
+        /* Footer */
+        .footer {
+            background: var(--vecinos-dark);
+            color: white;
+            padding: 3rem 1rem 1rem;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .footer h3 {
+            color: var(--vecinos-orange);
+            margin-bottom: 1rem;
+        }
+        
+        .footer p, .footer li {
+            color: #ccc;
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer ul {
+            list-style: none;
+        }
+        
+        .footer a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer a:hover {
+            color: var(--vecinos-orange);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid #333;
+            color: #999;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .mobile-menu { display: block; }
+            .hero-grid, .content-grid { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 2rem; }
+            .hero p { font-size: 1rem; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="home-static.html" class="logo">Vecinos</a>
+            <ul class="nav-links">
+                <li><a href="home-static.html">Início</a></li>
+                <li><a href="about.html">Sobre</a></li>
+                <li><a href="services.html">Serviços</a></li>
+                <li><a href="contact.html">Contato</a></li>
+            </ul>
+            <button class="mobile-menu">
+                <i data-lucide="menu"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-grid">
+            <div>
+                <h1>Cardápios Profissionais em Caraguatatuba</h1>
+                <p>Cardápios impressos com qualidade premium para restaurantes, bares e lanchonetes. Design atrativo e materiais resistentes no Litoral Norte.</p>
+                <a href="https://wa.me/5512979790618" target="_blank" class="cta-button">
+                    <i data-lucide="message-circle"></i>
+                    Solicitar Orçamento
+                </a>
+            </div>
+            <div>
+                <img src="https://github.com/andremoller3/videos/blob/main/ChatGPT%20Image%20Jul%203,%202025,%2005_43_14%20PM.png?raw=true" alt="Cardápios para restaurantes">
+            </div>
+        </div>
+    </section>
+
+    <!-- Content Section -->
+    <section class="content-section">
+        <div class="content-grid">
+            <div>
+                <h2>Cardápios que Despertam o Apetite</h2>
+                <p>Um cardápio bem projetado é uma ferramenta de vendas poderosa para restaurantes e bares. Na Vecinos, criamos cardápios com design atrativo e impressão de alta qualidade, utilizando materiais resistentes que suportam o uso diário em estabelecimentos do Litoral Norte.</p>
+                <p>Trabalhamos com papel couché plastificado que resiste a respingos e umidade, mantendo a qualidade visual por muito mais tempo. Nossos cardápios são projetados para destacar seus pratos e influenciar positivamente a experiência do cliente.</p>
+                
+                <h3>Vantagens dos Nossos Cardápios:</h3>
+                <ul class="benefits-list">
+                    <li>
+                        <i data-lucide="check" class="check-icon"></i>
+                        <span>Impressão em papel couché plastificado</span>
+                    </li>
+                    <li>
+                        <i data-lucide="check" class="check-icon"></i>
+                        <span>Resistente a respingos e umidade</span>
+                    </li>
+                    <li>
+                        <i data-lucide="check" class="check-icon"></i>
+                        <span>Design atrativo e funcional</span>
+                    </li>
+                    <li>
+                        <i data-lucide="check" class="check-icon"></i>
+                        <span>Diferentes formatos e dobras</span>
+                    </li>
+                    <li>
+                        <i data-lucide="check" class="check-icon"></i>
+                        <span>Cores vivas que destacam os pratos</span>
+                    </li>
+                    <li>
+                        <i data-lucide="check" class="check-icon"></i>
+                        <span>Acabamento profissional</span>
+                    </li>
+                </ul>
+
+                <a href="https://wa.me/5512979790618" target="_blank" class="cta-button">
+                    <i data-lucide="message-circle"></i>
+                    Pedir Orçamento Agora
+                </a>
+            </div>
+            
+            <div class="specs-box">
+                <h4>Opções Disponíveis:</h4>
+                <ul>
+                    <li>• Cardápio dobrável (bifold, trifold)</li>
+                    <li>• Cardápio formato A4 ou A3</li>
+                    <li>• Plastificação fosca ou brilho</li>
+                    <li>• Design personalizado incluído</li>
+                    <li>• Diferentes gramaturas de papel</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Desperte o Apetite dos Seus Clientes!</h2>
+            <p>Solicite seu orçamento para cardápios profissionais. Design e impressão de qualidade para seu restaurante!</p>
+            <a href="https://wa.me/5512979790618" target="_blank" class="cta-large">
+                <i data-lucide="message-circle"></i>
+                Pedir Orçamento via WhatsApp
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <div>
+                <h3>Vecinos Comunicação Visual</h3>
+                <p>Gráfica completa em Caraguatatuba oferecendo soluções de comunicação visual para todo o Litoral Norte.</p>
+            </div>
+            <div>
+                <h3>Contato</h3>
+                <p>📍 Av. Oswaldo Cruz, 557 - Caraguatatuba/SP</p>
+                <p>📞 (12) 97979-0618</p>
+                <p>✉️ contato@vecinos.com.br</p>
+            </div>
+            <div>
+                <h3>Serviços</h3>
+                <ul>
+                    <li><a href="banners-faixas-fachadas.html">Banners e Fachadas</a></li>
+                    <li><a href="adesivacao-veiculo.html">Adesivação de Veículos</a></li>
+                    <li><a href="adesivos-rotulos.html">Adesivos e Rótulos</a></li>
+                    <li><a href="luminosos.html">Luminosos</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3>Áreas de Atendimento</h3>
+                <ul>
+                    <li>Caraguatatuba</li>
+                    <li>Ubatuba</li>
+                    <li>São Sebastião</li>
+                    <li>Ilhabela</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Vecinos Comunicação Visual. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+    </script>
+</body>
+</html>
