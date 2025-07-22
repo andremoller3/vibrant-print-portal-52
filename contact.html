@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato - Vecinos Comunicação Visual | Caraguatatuba e Litoral Norte</title>
+    <meta name="description" content="Entre em contato com a Vecinos Comunicação Visual. Estamos em Caraguatatuba atendendo todo o Litoral Norte. Telefone, WhatsApp, e-mail e localização.">
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --vecinos-orange: #F97316;
+            --vecinos-blue: #1E3A8A;
+            --orange-600: #EA580C;
+            --orange-100: #FED7AA;
+            --gray-50: #F9FAFB;
+            --gray-100: #F3F4F6;
+            --gray-600: #4B5563;
+            --gray-700: #374151;
+            --white: #FFFFFF;
+            --green-500: #10B981;
+            --green-600: #059669;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: var(--gray-700);
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        /* Header */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 1rem 0;
+        }
+
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--vecinos-orange);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--gray-700);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--vecinos-orange);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--gray-700);
+        }
+
+        /* Page Header */
+        .page-header {
+            padding: 8rem 1rem 4rem;
+            background: var(--gray-50);
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-size: 3rem;
+            font-weight: bold;
+            color: var(--vecinos-blue);
+            margin-bottom: 1rem;
+            animation: slideInTop 0.8s ease-out;
+        }
+
+        .page-header p {
+            font-size: 1.25rem;
+            color: var(--gray-600);
+            max-width: 48rem;
+            margin: 0 auto;
+            animation: slideInTop 0.8s ease-out 0.2s both;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: 5rem 1rem;
+        }
+
+        .contact-container {
+            max-width: 64rem;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--vecinos-blue);
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .contact-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .contact-icon {
+            width: 3rem;
+            height: 3rem;
+            background: rgba(249, 115, 22, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            margin-right: 1rem;
+        }
+
+        .contact-info h3 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--vecinos-blue);
+            margin-bottom: 0.25rem;
+        }
+
+        .contact-info p {
+            color: var(--gray-600);
+            line-height: 1.6;
+        }
+
+        .contact-info a {
+            color: var(--gray-600);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-info a:hover {
+            color: var(--vecinos-orange);
+        }
+
+        /* Map Section */
+        .map-section {
+            padding: 3rem 1rem;
+            background: var(--gray-50);
+        }
+
+        .map-container {
+            border-radius: 0.5rem;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            height: 24rem;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 4rem 1rem;
+            background: var(--vecinos-orange);
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .cta-pattern {
+            position: absolute;
+            inset: 0;
+            opacity: 0.2;
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 10;
+            max-width: 48rem;
+            margin: 0 auto;
+        }
+
+        .cta-title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--white);
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-text {
+            color: var(--orange-100);
+            font-size: 1.125rem;
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 2rem;
+            border-radius: 9999px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.125rem;
+            transition: all 0.3s ease;
+            background: var(--white);
+            color: var(--vecinos-orange);
+        }
+
+        .btn:hover {
+            background: var(--gray-100);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--gray-700);
+            color: var(--white);
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+
+        /* Animations */
+        @keyframes slideInTop {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-slide-in-top {
+            animation: slideInTop 0.8s ease-out;
+        }
+
+        .animate-slide-in-bottom {
+            animation: slideInBottom 0.8s ease-out;
+        }
+
+        @keyframes slideInBottom {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .page-header h1 {
+                font-size: 2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .cta-title {
+                font-size: 2rem;
+            }
+
+            .contact-item {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .contact-icon {
+                margin: 0 auto 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="home-static.html" class="logo">Vecinos</a>
+            <ul class="nav-links">
+                <li><a href="home-static.html">Início</a></li>
+                <li><a href="about.html">Sobre</a></li>
+                <li><a href="services.html">Serviços</a></li>
+                <li><a href="contact.html">Contato</a></li>
+            </ul>
+            <button class="mobile-menu-btn">
+                <i data-lucide="menu"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Entre em Contato</h1>
+            <p>Estamos prontos para atender suas necessidades de comunicação visual em Caraguatatuba e todo o Litoral Norte.</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-container">
+                <h2 class="section-title animate-slide-in-top">Informações de Contato</h2>
+                
+                <div class="contact-card">
+                    <div class="contact-grid">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i data-lucide="map-pin" style="color: var(--vecinos-orange); width: 24px; height: 24px;"></i>
+                            </div>
+                            <div class="contact-info">
+                                <h3>Endereço</h3>
+                                <p>
+                                    Av. Mal. Floriano Peixoto, 100 - Poiares<br>
+                                    Caraguatatuba - SP, 11673-000
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i data-lucide="phone" style="color: var(--vecinos-orange); width: 24px; height: 24px;"></i>
+                            </div>
+                            <div class="contact-info">
+                                <h3>Telefone</h3>
+                                <p>
+                                    <a href="tel:+5512979790618">(12) 97979-0618</a>
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i data-lucide="mail" style="color: var(--vecinos-orange); width: 24px; height: 24px;"></i>
+                            </div>
+                            <div class="contact-info">
+                                <h3>E-mail</h3>
+                                <p>
+                                    <a href="mailto:contato@vecinos.com.br">contato@vecinos.com.br</a>
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i data-lucide="clock" style="color: var(--vecinos-orange); width: 24px; height: 24px;"></i>
+                            </div>
+                            <div class="contact-info">
+                                <h3>Horário de Funcionamento</h3>
+                                <p>
+                                    Segunda a Sexta: 9:00 - 18:00<br>
+                                    Sábado e Domingo: Fechado
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="map-section">
+        <div class="container">
+            <h2 class="section-title">Localização</h2>
+            <div class="map-container animate-slide-in-bottom">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3655.5!2d-45.408!3d-23.621!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94cd631551d2b977%3A0x4bb832a3afa2c0b0!2sAv.%20Mal.%20Floriano%20Peixoto%2C%20100%20-%20Poiares%2C%20Caraguatatuba%20-%20SP%2C%2011673-000!5e0!3m2!1spt-BR!2sbr!4v1621956578654!5m2!1spt-BR!2sbr"
+                    allowfullscreen
+                    loading="lazy"
+                    title="Localização da Vecinos Comunicação Visual">
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-pattern">
+            <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+                        <path d="M 0 10 L 40 10 M 10 0 L 10 40" fill="none" stroke="white" stroke-width="1"/>
+                    </pattern>
+                </defs>
+                <rect width="100%" height="100%" fill="url(#grid)" />
+            </svg>
+        </div>
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title">Precisa de Atendimento Rápido?</h2>
+                <p class="cta-text">
+                    Entre em contato pelo WhatsApp e receba um atendimento imediato para seu projeto de comunicação visual.
+                </p>
+                <a href="https://wa.me/5512979790618" target="_blank" rel="noopener noreferrer" class="btn">
+                    <i data-lucide="message-circle" style="width: 20px; height: 20px;"></i>
+                    Fale Conosco no WhatsApp
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Vecinos Comunicação Visual. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+    </script>
+</body>
+</html>

@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gráfica em Caraguatatuba - Vecinos Comunicação Visual</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    
+    <style>
+        /* Reset */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        h1, h2, h3 { font-family: 'Montserrat', sans-serif; }
+        
+        /* Design System Colors */
+        :root {
+            --vecinos-primary: #EB0090;
+            --vecinos-orange: #ff6200;
+            --vecinos-blue: #0047AB;
+            --vecinos-dark: #1A1A1A;
+        }
+        
+        /* Utility Classes */
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 1rem; }
+        .flex { display: flex; }
+        .items-center { align-items: center; }
+        .justify-between { justify-content: space-between; }
+        .text-center { text-align: center; }
+        .hidden { display: none; }
+        
+        /* Header */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 50;
+            padding: 1rem 0;
+        }
+        
+        .logo img { height: 3rem; }
+        
+        .nav-desktop {
+            display: none;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .nav-link {
+            padding: 0.5rem 1rem;
+            text-decoration: none;
+            color: #333;
+            transition: color 0.3s;
+        }
+        
+        .nav-link:hover { color: var(--vecinos-primary); }
+        
+        .whatsapp-btn {
+            background: #25D366;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 2rem;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        /* Hero */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+                        url('https://images.unsplash.com/photo-1626785774573-4b799315345d?q=80&w=2071&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            animation: slideIn 1s ease-out;
+        }
+        
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            animation: slideIn 1s ease-out 0.3s both;
+        }
+        
+        /* Sections */
+        .section { padding: 5rem 0; }
+        .section-bg-gray { background: #f9fafb; }
+        
+        .grid {
+            display: grid;
+            gap: 2rem;
+        }
+        
+        .grid-3 {
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        }
+        
+        /* Service Cards */
+        .service-card {
+            background: white;
+            border-radius: 0.5rem;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .service-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .service-card-content {
+            padding: 1.5rem;
+        }
+        
+        .service-card h3 {
+            color: var(--vecinos-blue);
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Animations */
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Responsive */
+        @media (min-width: 768px) {
+            .nav-desktop { display: flex; }
+            .hero h1 { font-size: 4rem; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container flex items-center justify-between">
+            <div class="logo">
+                <img src="./lovable-uploads/4f56fc66-5129-4d49-b397-1c14c98dcfcb.png" alt="Vecinos Logo">
+            </div>
+            <div class="nav-desktop">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#sobre" class="nav-link">Sobre</a>
+                <a href="#servicos" class="nav-link">Serviços</a>
+                <a href="#contato" class="nav-link">Contato</a>
+                <a href="https://wa.me/5512979790618" class="whatsapp-btn">
+                    <i data-lucide="message-circle"></i>
+                    Orçamento
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>A Melhor Gráfica do Litoral Norte</h1>
+            <p>Banners, Adesivos e Impressão Digital de Alta Qualidade</p>
+            <a href="https://wa.me/5512979790618" class="whatsapp-btn">
+                <i data-lucide="message-circle"></i>
+                Entre em Contato Agora
+            </a>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section class="section" id="sobre">
+        <div class="container">
+            <h2 class="text-center" style="color: var(--vecinos-blue); margin-bottom: 2rem;">
+                Sua Gráfica de Confiança em Caraguatatuba
+            </h2>
+            <p class="text-center" style="max-width: 800px; margin: 0 auto;">
+                A Vecinos Comunicação Visual é especializada em impressão de alta qualidade. 
+                Oferecemos banners, adesivos, fachadas e impressão digital para todo o Litoral Norte.
+            </p>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section class="section section-bg-gray" id="servicos">
+        <div class="container">
+            <h2 class="text-center" style="color: var(--vecinos-blue); margin-bottom: 3rem;">
+                Nossos Serviços
+            </h2>
+            <div class="grid grid-3">
+                <div class="service-card">
+                    <img src="https://github.com/andremoller3/videos/blob/main/ChatGPT%20Image%204%20de%20jul.%20de%202025,%2018_46_18.png?raw=true" alt="Banners">
+                    <div class="service-card-content">
+                        <h3>Banners e Faixas</h3>
+                        <p>Impressão em lona de alta definição</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <img src="https://github.com/andremoller3/videos/blob/main/ChatGPT%20Image%204%20de%20jul.%20de%202025,%2018_51_34.png?raw=true" alt="Adesivos">
+                    <div class="service-card-content">
+                        <h3>Adesivos e Rótulos</h3>
+                        <p>Vinil com diversos acabamentos</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <img src="./lovable-uploads/20cc1627-98ba-4460-bb68-f82e51b5de7a.png" alt="Veículos">
+                    <div class="service-card-content">
+                        <h3>Envelopamento</h3>
+                        <p>Adesivação personalizada de veículos</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+        
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
